@@ -8,22 +8,30 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.study.api.model.Project;
+import com.study.common.LogUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class InfoController {
+	private static final String[] T = LogUtil.T;
+	
 	@GetMapping("/info")
 	public Object info() {
+		log.info("START");
 		Project project = new Project();
 		project.projectName = "keultae";
 //		project.author = "hello spring boot";
 		project.author = null;
 		project.createDate = new Date();
-		
+		log.debug("{}{}", T[1], project.toString());
 		return project;
 	}
 	
 	@GetMapping("/info2")
 	public String info2() {
+		log.info("START");
 		/**
 		 * spring boot에서 jackson을 선택했으니,
 		 * 기본으로 jakson을 사용하고
@@ -68,6 +76,7 @@ public class InfoController {
 		   ]
 		}
 		 */
+		log.debug("{}{}", T[1], jo.toString());
 		return jo.toString();
 	}
 }

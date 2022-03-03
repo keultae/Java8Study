@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -18,6 +19,7 @@ import lombok.Setter;
 //NOT_NULL : null 이 아니면 포함
 //NOT_DEFAULT : bean의 기본생성자로 정의된 필드값과 다르게 변경된 필드만 포함
 @JsonInclude(JsonInclude.Include.NON_NULL)	// null이 아닌것만 return에 포함
+@ToString
 public class Project {
 	// return 프로퍼티 이름 변경, "projectName": "keultae" => "name": "keultae"
 	@JsonProperty(value="name")
