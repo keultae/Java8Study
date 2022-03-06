@@ -1,0 +1,11 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} %red([%1.-1level]) %-36.36logger{36} %-25.25M %-4line %msg%n</Pattern>
+        </layout>
+    </appender>
+	  
+  	<root level="INFO">
+    	<appender-ref ref="STDOUT" />
+  	</root>
+</configuration>
