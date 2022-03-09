@@ -15,7 +15,7 @@ import com.study.common.LogUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-class SetTest {
+class SetExample {
 	private static final String[] T = LogUtil.T;
 	
 	/**
