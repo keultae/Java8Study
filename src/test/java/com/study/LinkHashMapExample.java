@@ -30,6 +30,7 @@ class LinkHashMapExample {
 	void test1() {
 		System.out.println("\n* LinkedHashMap()");
 		
+		// key가 입력한 순서대로 저장됨 
 		Map<String, Integer> map = new LinkedHashMap<>();
         for (int i = 0; i < 10; i++) {
             String key = "ID_" + i;
