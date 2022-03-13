@@ -55,11 +55,15 @@ class FilterMapExample {
 		 * FlatMap은 여러개의 스트림을 한개의 스트림으로 합쳐줍니다. 
 		 * 복잡한 스트림을 간단한 스트림으로 변경되는데 사용할 수 있습니다. 
 		 * 
+		 * map은 값이 하나가 들어가면 결과가 하나가 나오는데,
+		 * 값이 하나가 들어가고 결과가 여러개가 나온다면 flagMap을 사용해야 합니다.
+		 * 
 		 * 아래 코드에서는 Stream<String[]>를 Stream<String> 형태로 변환하였습니다. 
 		 */
 		String[][] arrays = new String[][]{ {"a1", "a2"}, {"b1", "b2"}, {"c1", "c2", "c3"} };
 		Stream<String[]> stream4 = Arrays.stream(arrays);
-		Stream<String> stream5 = stream4.flatMap(s -> Arrays.stream(s));
+//		Stream<String> stream5 = stream4.flatMap(s -> Arrays.stream(s));
+		Stream<String> stream5 = stream4.flatMap(Arrays::stream);
 		stream5.forEach(System.out::println);
 	}
 	
