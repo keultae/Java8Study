@@ -2,6 +2,7 @@ package com.study.api;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,9 @@ import lombok.extern.slf4j.Slf4j;
 public class InfoController {
 	private static final String[] T = LogUtil.T;
 	
+	@Autowired
+	EvalNormal evalNormal;
+	
 	@GetMapping("/info")
 	public Object info() {
 		log.info("START");
@@ -26,6 +30,8 @@ public class InfoController {
 		project.author = null;
 		project.createDate = new Date();
 		log.debug("{}{}", T[1], project.toString());
+		
+		evalNormal.eval("111111");
 		return project;
 	}
 	
