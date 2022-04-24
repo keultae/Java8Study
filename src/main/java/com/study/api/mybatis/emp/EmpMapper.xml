@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.api.mybatis.emp.EmpMapper">
+	<select id="selectDto" parameterType="string" resultType="com.study.api.mybatis.emp.EmpDTO">
+		select 
+			ID, PASSWORD, NAME, EMAIL, USE_YN, CREATED, ORG_ID 
+		from 
+			emp
+		<if test="id != null and id != ''">
+		where 
+			id = #{id}
+		</if>
+	</select>
+	
+	<select id="selectMap" parameterType="string" resultType="hashmap">
+		select 
+			id, password, name, email, use_yn, created, org_id
+		from 
+			emp
+		<if test="id != null and id != ''">
+		where 
+			id = #{id}
+		</if>
+	</select>
+		
+</mapper>

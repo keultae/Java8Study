@@ -119,13 +119,14 @@ public class InfoController {
 
             
             for (String bean : beans) {
-        		if(applicationContext.getBean(bean) instanceof Script ) {
-        			log.info("bean : {}, {}", bean, applicationContext.getBean(bean).getClass().getName());
-        			
-                    Script script = (Script) applicationContext.getBean(bean);
-                    log.info(script.toString());
-                    log.info(script.getType());
-        		}
+            	log.info("bean : {}, {}", bean, applicationContext.getBean(bean).getClass().getName());
+//        		if(applicationContext.getBean(bean) instanceof Script ) {
+//        			log.info("bean : {}, {}", bean, applicationContext.getBean(bean).getClass().getName());
+//        			
+//                    Script script = (Script) applicationContext.getBean(bean);
+//                    log.info(script.toString());
+//                    log.info(script.getType());
+//        		}
             }
         }
 		

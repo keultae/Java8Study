@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.api.mybatis.address.AddressMapper">
+	<select id="select" parameterType="string" resultType="com.study.api.mybatis.address.AddressDTO">
+		SELECT 
+			uuid, g1uuid, g2uuid, g3uuid, id, name, email, created 
+		FROM 
+			address
+		<if test="uuid != null and uuid != ''">
+		WHERE
+			uuid = #{uuid}
+		</if>
+	</select>
+
+	<insert id="insert" parameterType="com.study.api.mybatis.address.AddressDTO">
+		INSERT INTO address
+			(uuid, g1uuid, g2uuid, g3uuid, id, name, email)
+		VALUES ( #{uuid}, #{g1uuid}, #{g2uuid}, #{g3uuid}, #{id}, #{name}, #{email} )			
+	</insert>
+
+
+	<update id="update" parameterType="com.study.api.mybatis.address.AddressDTO">
+		UPDATE  address
+			SET id=#{id}, name=#{name}, email=#{email}
+		WHERE
+			uuid = #{uuid}
+	</update>
+		
+	<delete id="delete">
+		DELETE FROM address 
+		WHERE uuid = #{uuid}
+	</delete>
+</mapper>
